@@ -30,4 +30,9 @@ RES Wumbo::Sprite *sprWorldSelector_Pastel;
 RES Wumbo::Sprite *sprWorldSelector_Dark;
 RES Wumbo::Sprite *sprWorldSelector_Real;
 RES Wumbo::Sprite *sprWorldSelector_ZONGU;
+
+
+
+
+RES Wumbo::Sprite *sprPlayer;
 #endif

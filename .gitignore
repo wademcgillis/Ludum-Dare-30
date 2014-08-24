@@ -29,10 +29,11 @@ $RECYCLE.BIN/
 *.exe.intermediate.manifest
 *.exe.manifest
 
-Wumbo*
-
 #stuff
 *.png
+*.pdn
+Wumbo*
+rapidxml*
 
 # =========================
 # Operating System Files

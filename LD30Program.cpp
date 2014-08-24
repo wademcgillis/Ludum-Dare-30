@@ -51,9 +51,6 @@ void LD30Program::begin()
 {
 	srand(time(NULL));
 
-
-	//glColorMask(1.f,0.f,1.f,1.f);
-
 	Wumbo::Program::begin();
 	// build the shader
 	Wumbo::ShaderBuilder builder;
@@ -121,6 +118,9 @@ void LD30Program::begin()
 	sprWorldSelector_Dark = allocStaticSprite(renderer,texWorld_Dark,64,448,704,0,64,448);
 	sprWorldSelector_Real = allocStaticSprite(renderer,texWorld_Real,448,64,576,640,448,64);
 	sprWorldSelector_ZONGU = allocStaticSprite(renderer,texWorld_ZONGU,448,64,576,704,448,64);
+
+
+	sprPlayer = allocStaticSprite(renderer,texWorld_ZONGU,128,128,2,2,128,128);
 
 	setScene(new Level(this));
 }

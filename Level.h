@@ -5,12 +5,20 @@
 #include "Wumbo-Sprite.h"
 extern int worldStyle;
 
+
+#include "Entity.h"
+#include "obj_player.h"
+#include <vector>
+
 class Level : public Wumbo::Scene
 {
 public:
+	std::vector<Entity*> entities;
+	obj_player *player;
 	int dSize;
 	int menuOffset;
 	bool showingWorldMenu;
+	unsigned int tiles[128*9];
 private:
 	void draw_thing(bool horz, Wumbo::Sprite *bg, int x, int y, unsigned int key, int setWorldStyleTo);
 public:
@@ -20,5 +28,7 @@ public:
 	void render();
 	void end();
 	void onClose();
+
+	Entity *addEntity(Entity *ent, int x, int y);
 };
 #endif

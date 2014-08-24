@@ -4,10 +4,27 @@
 #include "Wumbo-Functions.h"
 #include "Wumbo-Shader.h"
 #include "Resources.h"
+#include "rapidxml.hpp"
 
 float randomf(float f)
 {
 	return f * (float) rand() / (float)RAND_MAX;
+}
+
+char *file_contents(const char* path)
+{
+	FILE *f = fopen(path,"rb");
+	if (!f)
+		return NULL;
+	fseek(f,0,SEEK_END);
+	int size = ftell(f);
+	char *contents = new char[size+1];
+	memset(contents,0,size+1);
+	fpos_t zero = 0;
+	fsetpos(f,&zero);
+	fread(contents,size,1,f);
+	fclose(f);
+	return contents;
 }
 
 bool mouse_in_rect(int x, int y, int w, int h)
@@ -24,6 +41,25 @@ void Level::begin()
 {
 	menuOffset = 0;
 	dSize = 0;
+	//printf();
+	rapidxml::xml_document<char> bob;
+	bob.parse<0>(file_contents("C:\\LD30\\SOURCE\\OGMO\\test.oel"));
+	printf("ZOOT\n");
+	for(rapidxml::xml_node<char> *first = bob.first_node()->first_node()->first_node();first;first = first->next_sibling())
+	{
+		printf("%s\n",first->name());
+		if (strcmp("Ground",first->name()))
+		{
+			int xx = atoi((char*)first->first_attribute("x"))/16;
+			int yy = atoi((char*)first->first_attribute("y"))/16;
+			for(int i = 0; i < atoi(first->first_attribute(width))/16; i++)
+				for(int j = 0; j < atoi(first->first_attribute(height))/16; j++)
+					tiles[64*yy + xx] = rand()%3;
+		}
+			
+	}
+	printf("PICKLE\n");
+	//first->next_sibling();
 }
 void Level::update()
 {
@@ -52,6 +88,15 @@ void Level::draw_thing(bool horz, Wumbo::Sprite *bg, int x, int y, unsigned int 
 		worldStyle = setWorldStyleTo;
 		dSize = -8;
 	}
+}
+Entity *Level::addEntity(Entity *ent, int x, int y)
+{
+
+	ent->x = x;
+	ent->y = y;
+	ent->begin();
+	entities.push_back(ent);
+	return ent;
 }
 void Level::render()
 {
@@ -111,6 +156,11 @@ void Level::render()
 		draw_thing(true, sprWorldSelector_ZONGU, 64, 24+512, Wumbo::Key::Down, 1);
 	}
 
+	//
+	//
+	//					DRAW LEVEL
+	//
+	//
 	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(menuOffset,24+menuOffset,576-2*menuOffset,576-2*menuOffset,576,576));
 	glClearColor(.5f,.5f,.5f,1);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -123,25 +173,14 @@ void Level::render()
 		glBindTexture(GL_TEXTURE_2D, texWorld_Real->getTexture());
 	if (worldStyle == 3)
 		glBindTexture(GL_TEXTURE_2D, texWorld_ZONGU->getTexture());
-	//
-	//
-	//					END DRAW WORLD MENU
-	//
-	//
-
-
-
-
-
-	// draw game 
 
 
 
 
 
 
-
-
+	for(unsigned int i=0;i<entities.size();i++)
+		entities.at(i)->render();
 
 
 	// Draw the glowy border, only if we're pausing though.
