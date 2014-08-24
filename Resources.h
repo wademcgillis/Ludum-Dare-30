@@ -10,7 +10,8 @@
 #endif
 
 RES int worldStyle;
-RES bool PAUSED;
+RES bool ALTARED;
+RES unsigned char gems;
 
 
 RES Wumbo::Shader *megaShader;
@@ -35,4 +36,21 @@ RES Wumbo::Sprite *sprWorldSelector_ZONGU;
 
 
 RES Wumbo::Sprite *sprPlayer;
+
+RES Wumbo::Sprite *sprDirt;
+RES Wumbo::Sprite *sprGrass;
+RES Wumbo::Sprite *sprPortal;
+RES Wumbo::Sprite *sprSign;
+RES Wumbo::Sprite *sprMushroom;
+RES Wumbo::Sprite *sprBuilding;
+RES Wumbo::Sprite *sprTree;
+RES Wumbo::Sprite *sprCow;
+RES Wumbo::Sprite *sprAltar;
+RES Wumbo::Sprite *sprStones;
+
+RES Wumbo::Sprite *sprFont;
+RES Wumbo::Sprite *sprSpeech;
+
+const unsigned int TILE_DIRT = 1;
+const unsigned int TILE_GRASS = 2;
 #endif

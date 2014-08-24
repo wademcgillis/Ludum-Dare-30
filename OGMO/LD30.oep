@@ -24,7 +24,9 @@
     <Height>480</Height>
   </CameraSize>
   <ExportCameraPosition>false</ExportCameraPosition>
-  <LevelValueDefinitions />
+  <LevelValueDefinitions>
+    <ValueDefinition xsi:type="StringValueDefinition" Name="VanityText" Default="" MaxChars="-1" MultiLine="false" />
+  </LevelValueDefinitions>
   <LayerDefinitions>
     <LayerDefinition xsi:type="EntityLayerDefinition">
       <Name>Entities</Name>
@@ -108,7 +110,8 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
         <ValueDefinition xsi:type="StringValueDefinition" Name="Name" Default="" MaxChars="-1" MultiLine="false" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Destination" Default="" MaxChars="-1" MultiLine="false" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="TargetPortal" Default="" MaxChars="-1" MultiLine="false" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="TargetRoom" Default="" MaxChars="-1" MultiLine="false" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>

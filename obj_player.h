@@ -4,6 +4,9 @@
 class obj_player : public Entity
 {
 public:
+	bool facingLeft;
+	int vspeed;
+	int frameTick;
 public:
 	obj_player(Level *lvl);
 	void begin();

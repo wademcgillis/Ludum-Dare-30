@@ -89,7 +89,7 @@ void LD30Program::begin()
 	GM::gm_wumbo_init(this);
 	Wumbo::Quicky_SetProgram(this);
 	renderer->setDisplaySize(576,600);
-	//renderer->centerDisplayOnScreen();
+	renderer->centerDisplayOnScreen();
 
 
 
@@ -100,9 +100,9 @@ void LD30Program::begin()
 
 
 
+	gems = 0xF;
 
-
-	worldStyle = 0;
+	worldStyle = 1;
 
 	texMain = new Wumbo::Texture("GFX/texture.png");
 	texWorld_Pastel = new Wumbo::Texture("GFX/pastel.png");
@@ -120,9 +120,37 @@ void LD30Program::begin()
 	sprWorldSelector_ZONGU = allocStaticSprite(renderer,texWorld_ZONGU,448,64,576,704,448,64);
 
 
-	sprPlayer = allocStaticSprite(renderer,texWorld_ZONGU,128,128,2,2,128,128);
+	sprPlayer = allocAnimatedSprite(renderer,texWorld_Pastel,2,128,128);
+		sprPlayer->setSubrectPixels(0,2,2,128,128);
+		sprPlayer->setSubrectPixels(1,132,2,128,128);
 
-	setScene(new Level(this));
+	sprDirt = allocAnimatedSprite(renderer,texWorld_Pastel,3,64,64);
+		sprDirt->setSubrectPixels(0,262,134,64,64);
+		sprDirt->setSubrectPixels(1,262,200,64,64);
+		sprDirt->setSubrectPixels(2,262,267,64,64);
+
+	sprGrass = allocAnimatedSprite(renderer,texWorld_Pastel,3,64,64);
+		sprGrass->setSubrectPixels(0,262,333,64,64);
+		sprGrass->setSubrectPixels(1,328,333,64,64);
+		sprGrass->setSubrectPixels(2,328,267,64,64);
+
+	sprPortal = allocStaticSprite(renderer,texWorld_Pastel,		256,256,	2,132,		256,256);
+	sprSign = allocStaticSprite(renderer,texWorld_Pastel,		64,64,		262,2,		64,64);
+	sprMushroom = allocStaticSprite(renderer,texWorld_Pastel,	64,64,		262,68,		64,64);
+	sprBuilding = allocStaticSprite(renderer,texWorld_Pastel,	256,256,	328,2,		256,256);
+	sprTree = allocStaticSprite(renderer,texWorld_Pastel,		128,256,	586,2,		128,256);
+	sprCow = allocStaticSprite(renderer,texWorld_Pastel,		128,128,	716,2,		128,128);
+	sprAltar = allocStaticSprite(renderer,texWorld_Pastel,		128,128,	394,267,	128,128);
+	
+	sprStones = allocAnimatedSprite(renderer,texWorld_Pastel,4,	9,17);
+		sprStones->setSubrectPixels(0,	524,267,	9,17);//left
+		sprStones->setSubrectPixels(1,	524,286,	9,17);//right
+		sprStones->setSubrectPixels(2,	535,267,	9,17);//up
+		sprStones->setSubrectPixels(3,	535,286,	9,17);//down
+
+	sprFont = 
+
+	setScene(new Level(this,"test"));
 }
 void LD30Program::update()
 {

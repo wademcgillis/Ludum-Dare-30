@@ -1,0 +1,7 @@
+<level width="144" height="144" VanityText="portal testing">
+  <Entities>
+    <Ground id="0" x="0" y="128" width="144" height="16" Pastel="True" Dark="True" Real="True" ZONGU="True" />
+    <Player id="1" x="0" y="96" />
+    <Portal id="2" x="64" y="64" Pastel="True" Dark="True" Real="True" ZONGU="True" Name="Zooger" TargetPortal="TestBegin" TargetRoom="test" />
+  </Entities>
+</level>
