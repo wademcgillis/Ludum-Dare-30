@@ -9,11 +9,25 @@
 #define RES extern
 #endif
 
+RES int worldStyle;
+RES bool PAUSED;
+
+
 RES Wumbo::Shader *megaShader;
 
 RES Wumbo::Texture *texMain;
+RES Wumbo::Texture *texWorld_Pastel;
+RES Wumbo::Texture *texWorld_Dark;
+RES Wumbo::Texture *texWorld_Real;
+RES Wumbo::Texture *texWorld_ZONGU;
 
-RES Wumbo::Sprite *sprGlow;
+RES Wumbo::Sprite *sprGlow_Horz;
+RES Wumbo::Sprite *sprGlow_Vert;
 
-RES Wumbo::Sprite *sprTerrain[9];
+RES Wumbo::Sprite *sprGlow_Big; // Or Glow_Home
+
+RES Wumbo::Sprite *sprWorldSelector_Pastel;
+RES Wumbo::Sprite *sprWorldSelector_Dark;
+RES Wumbo::Sprite *sprWorldSelector_Real;
+RES Wumbo::Sprite *sprWorldSelector_ZONGU;
 #endif
