@@ -6,7 +6,6 @@ class obj_talker : public Entity
 {
 public:
 	char *typestr;
-	unsigned char WORLD;
 	float scaletick;
 	float scaleX;
 	float scaleY;
@@ -14,12 +13,15 @@ public:
 	int drawY;
 	Wumbo::Sprite *sprite;
 	std::vector<std::string> phrases;
+	int currentPhrase;
 public:
 	obj_talker(Level *lvl, unsigned type_);
 	void begin();
 	void update();
 	void render();
 	void destroy();
+
+	void talk();
 	
 	void print();
 };

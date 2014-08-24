@@ -32,6 +32,76 @@ char *file_contents(const char* path)
 	return contents;
 }
 
+unsigned int string_count(std::string str, char c)
+{
+	unsigned int count = 0;
+	int pos = 0;
+	for(int i=0;i<str.length();i++)
+		if (str.at(i) == c)
+			count++;
+	return count;
+}
+
+std::string clean_out_R(std::string str)
+{
+	// while we're able to find \r, erase them
+	unsigned int pos;
+	while ((pos = str.find("\r")) != std::string::npos)
+		str.erase(str.begin()+pos);
+	return str;
+}
+
+void draw_sprite_size(Wumbo::Sprite *spr, int x, int y, int w, int h)
+{
+	if (h == 0 || w == 0)
+		return;
+	spr->setPosition(x,y);
+	spr->setSize(w,h);
+	spr->draw();
+}
+void draw_fancy_rectangle(int x, int y, int w, int h, int style = 1)
+{
+	style = 1;
+	if (style == 0)
+	{
+		if (w < 32)
+			w = 32;
+		if (h < 48)
+			h = 48;
+		// top row
+		draw_sprite_size(sprSpeech[0],	x,y,			16,16);
+		draw_sprite_size(sprSpeech[1],	x+16,y,			w-32,16);
+		draw_sprite_size(sprSpeech[2],	x+w-16,y,		16,16);
+		// middle row
+		draw_sprite_size(sprSpeech[3],	x,y+16,			16,h-48);
+		draw_sprite_size(sprSpeech[4],	x+16,y+16,		w-32,h-48);
+		draw_sprite_size(sprSpeech[5],	x+w-16,y+16,	16,h-48);
+		// bottom row
+		draw_sprite_size(sprSpeech[6],	x,y+h-32,		16,32);
+		draw_sprite_size(sprSpeech[7],	x+16,y+h-32,	w-32,32);
+		draw_sprite_size(sprSpeech[8],	x+w-16,y+h-32,	16,32);
+	}
+	else
+	{
+		if (w < 48)
+			w = 48;
+		if (h < 56)
+			h = 56;
+		// top row
+		draw_sprite_size(sprSpeech[ 9],	x,y,			24,24);
+		draw_sprite_size(sprSpeech[10],	x+24,y,			w-48,24);
+		draw_sprite_size(sprSpeech[11],	x+w-24,y,		24,24);
+		// middle row
+		draw_sprite_size(sprSpeech[12],	x,y+24,			16,h-56);
+		draw_sprite_size(sprSpeech[13],	x+16,y+24,		w-32,h-56);
+		draw_sprite_size(sprSpeech[14],	x+w-16,y+24,	16,h-56);
+		// bottom row
+		draw_sprite_size(sprSpeech[15],	x,y+h-32,		32,32);
+		draw_sprite_size(sprSpeech[16],	x+32,y+h-32,	w-64,32);
+		draw_sprite_size(sprSpeech[17],	x+w-32,y+h-32,	32,32);
+	}
+}
+
 bool mouse_in_rect(int x, int y, int w, int h)
 {
 	Wumbo::vec2di bob = Wumbo::__quickyMouse->getPosition();
@@ -50,6 +120,7 @@ Level::Level(Wumbo::Program *prog, std::string filename, std::string warpto) : W
 }
 void Level::begin()
 {
+	phrasePosition = 0;
 	int playerX = 0;
 	int playerY = 0;
 	int warpX = -1;
@@ -58,9 +129,7 @@ void Level::begin()
 	memset(tiles,0,128*9*sizeof(LD30Tile));
 	for(int i=0;i<128;i++)
 		for(int j=0;j<9;j++)
-		{
 			tiles[128*j+i].rand3 = arr[rand()%5];
-		}
 	menuOffset = 0;
 	dSize = 0;
 	//printf();
@@ -152,19 +221,25 @@ void Level::begin()
 			int yy = atoi((char*)node->first_attribute("y")->value())/16;
 			obj_talker *talk = (obj_talker*)addEntity(new obj_talker(this,talkerID),64*xx,64*yy);
 			talk->WORLD = in;
-			std::string words = (char*)node->first_attribute("Text")->value();
-			if (words.length() > 0)
-			{
-				// while we're able to find \r, erase them
-				unsigned int pos;
-				while ((pos = words.find("\r")) != std::string::npos)
-					words.erase(words.begin()+pos);
-				// tokenize the text by the delimiter \n and then add them to what the entity says
-				talk->phrases.push_back(strtok((char*)words.c_str(),"\n"));
-				char *bob;
-				while((bob = strtok(NULL,"\n")) != NULL)
-					talk->phrases.push_back(bob);
-			}
+			std::string words;
+			words = clean_out_R((char*)node->first_attribute("Text1")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
+			words = clean_out_R((char*)node->first_attribute("Text2")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
+			words = clean_out_R((char*)node->first_attribute("Text3")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
+			words = clean_out_R((char*)node->first_attribute("Text4")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
+			words = clean_out_R((char*)node->first_attribute("Text5")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
+			words = clean_out_R((char*)node->first_attribute("Text6")->value());
+			if (words != "")
+				talk->phrases.push_back(words);
 		}
 
 		if (strcmp("Player",node->name()) == 0)
@@ -232,6 +307,7 @@ Entity *Level::addEntity(Entity *ent, int x, int y)
 }
 void Level::update()
 {
+	talking = NULL;
 	if (!ALTARED)
 		for(unsigned int i=0;i<entities.size();i++)
 			entities.at(i)->update();
@@ -318,7 +394,7 @@ void Level::render()
 	if (worldStyle == 4)
 	{
 		glBindTexture(GL_TEXTURE_2D, texWorld_Real->getTexture());
-		glClearColor(.5f,.5f,.5f,1);
+		glClearColor(83.f/255.f,142.f/255.f,210.f/255.f,1);
 	}
 	if (worldStyle == 8)
 	{
@@ -375,15 +451,123 @@ void Level::render()
 			}
 		}
 	Wumbo::Sprite::STATICXOFFSET = 0;
-
-
-	// Draw the glowy border, only if we're pausing though.
 	glBindTexture(GL_TEXTURE_2D, texMain->getTexture());
+	
+	bool increaseSpeech = false;
+	if (talking != NULL)
+		if (talking->currentPhrase < talking->phrases.size())
+		{
+			increaseSpeech = true;
+		}
+	int H;
+	if (increaseSpeech)
+	{
+		speechWidth += 58;
+		if (speechWidth > 576)
+			speechWidth = 576;
+		H = 16+32*(1+string_count(talking->phrases.at(talking->currentPhrase).substr(0,phrasePosition/4),'\n'))+24;
+		if (speechHeight < H)
+		{
+			speechHeight += 32;
+			if (speechHeight > H)
+				speechHeight = H;
+		}
+		if (speechHeight > H)
+		{
+			speechHeight -= 32;
+			if (speechHeight < H)
+				speechHeight = H;
+		}
+		if (speechHeight == H)
+		{
+			if ((phrasePosition+2)/4 <= talking->phrases.at(talking->currentPhrase).size())
+			{
+				phrasePosition++;
+				phrasePosition++;
+
+				if (phrasePosition/4 < talking->phrases.at(talking->currentPhrase).size())
+				{
+					if (phrasePosition < 4)
+						talking->talk();
+					else
+					{
+						char b4 = talking->phrases.at(talking->currentPhrase).at((phrasePosition-1)/4);
+						char now = talking->phrases.at(talking->currentPhrase).at((phrasePosition)/4);
+						if (!((b4 >= 'A' && b4 <= 'Z') || (b4 >= 'a' && b4 <= 'z')) && // if B4 WASN'T A LETTER
+							((now >= 'A' && now <= 'Z') || (now >= 'a' && now <= 'z'))) // BUT NOW IS...
+								talking->talk();
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		phrasePosition = 0;
+		speechWidth -= 58;
+		if (speechWidth < 0)
+			speechWidth = 0;
+		speechHeight -= 64;
+		if (speechHeight < 0)
+			speechHeight = 0;
+	}
+	if (speechWidth > 0 && speechHeight > 0)
+		draw_fancy_rectangle(576/2-speechWidth/2,0,speechWidth,speechHeight);
+	//sprSpeech->setPosition(576/2,0);
+	//sprSpeech->draw();
+	if (talking != NULL)
+	{
+		if (talking->currentPhrase < talking->phrases.size())
+		{
+			if (speechWidth == 576)
+			{
+				if (phrasePosition/4 == talking->phrases.at(talking->currentPhrase).size() && talking->currentPhrase != talking->phrases.size()-1)
+					draw_sprite_size(sprSpeechMore,576-80,H-32,64,32);
+				sprFont->setColor(0xFF000000);
+				draw_text(12,12,talking->phrases.at(talking->currentPhrase).substr(0,phrasePosition/4));
+				if (Wumbo::__quickyKeyboard->isKeyPressed(Wumbo::Key::Space))
+				{
+					if (phrasePosition < talking->phrases.at(talking->currentPhrase).size()*4)
+						phrasePosition = talking->phrases.at(talking->currentPhrase).size()*4;
+					else
+					{
+						phrasePosition = 0;
+						talking->currentPhrase++;
+					}
+				}
+			}
+		}
+	}
+	// Draw the glowy border, only if we're pausing though.
+	
 	sprGlow_Big->setPosition(0,0);
 	sprGlow_Big->setColor(0,0,0,255);
 	sprGlow_Big->setAlpha(menuOffset/64.f);
 	sprGlow_Big->draw();
 	altaredbefore = ALTARED;
+}
+void Level::draw_text(int x, int y, std::string str)
+{
+	int xx = x;
+	int yy = y;
+	for(int i=0;i<str.length();i++)
+	{
+		char c = str.at(i);
+		if (c == 10)
+		{
+			xx = x;
+			yy += 32;
+		}
+		if (c >= 32)
+		{
+			if (c >= 'a' && c <= 'z')
+				c -= ('a'-'A');
+			sprFont->setActiveSubimage(c-32);
+			sprFont->setPosition(xx,yy);
+			sprFont->draw();
+			xx += 32;
+		}
+	}
 }
 void Level::end()
 {

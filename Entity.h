@@ -15,12 +15,14 @@ const unsigned int OBJ_COW		 = 8;
 class Entity
 {
 public:
+	unsigned char WORLD;
 	int x, y;
 	Level *level;
 	Wumbo::Hitbox hitbox;
 	unsigned int type;
 public:
 	Entity(Level *lvl);
+	bool collideTerrain(int xx, int yy);
 	bool collisionAt(int x, int y, unsigned int otype);
 	Entity *entityAt(int x, int y, unsigned int otype);
 	virtual void begin() {}

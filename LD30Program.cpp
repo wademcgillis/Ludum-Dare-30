@@ -29,6 +29,19 @@ Wumbo::Sprite *allocStaticSprite(Wumbo::Renderer *r, Wumbo::Texture *texture, in
 	return spr;
 }
 
+Wumbo::Sprite *allocStaticSprite(Wumbo::Renderer *r, Wumbo::Texture *texture, int u, int v, int uW, int vH)
+{
+	Wumbo::Sprite *spr = new Wumbo::Sprite(r);
+	spr->setTexture(texture);
+	spr->setOffset(0,0);
+	spr->setSize(uW,vH);
+	spr->setAlpha(1);
+	spr->setScale(1,1);
+	spr->setSubimageCount(1);
+	spr->setSubrectPixels(0,u,v,uW,vH);
+	return spr;
+}
+
 Wumbo::Sprite *allocAnimatedSprite(Wumbo::Renderer *r, Wumbo::Texture *texture, int frameCount, int w, int h)
 {
 	Wumbo::Sprite *spr = new Wumbo::Sprite(r);
@@ -99,6 +112,29 @@ void LD30Program::begin()
 
 
 
+/*
+
+
+
+
+
+
+
+
+
+																		DINNER TIME
+
+
+
+S
+
+
+
+
+
+
+
+*/
 
 	gems = 0xF;
 
@@ -107,7 +143,7 @@ void LD30Program::begin()
 	texMain = new Wumbo::Texture("GFX/texture.png");
 	texWorld_Pastel = new Wumbo::Texture("GFX/pastel.png");
 	texWorld_Dark = new Wumbo::Texture("GFX/dark.png");
-	texWorld_Real = new Wumbo::Texture("GFX/pastel.png");
+	texWorld_Real = new Wumbo::Texture("GFX/real.png");
 	texWorld_ZONGU = new Wumbo::Texture("GFX/dark.png");
 
 	sprGlow_Horz = allocStaticSprite(renderer,texMain,448,64,192,0,448,64);
@@ -148,7 +184,38 @@ void LD30Program::begin()
 		sprStones->setSubrectPixels(2,	535,267,	9,17);//up
 		sprStones->setSubrectPixels(3,	535,286,	9,17);//down
 
-	sprFont = 
+	sprSpeech[0] = allocStaticSprite(renderer,texMain,	0,832,	 16,16);
+	sprSpeech[1] = allocStaticSprite(renderer,texMain,	16,832,	 16,16);
+	sprSpeech[2] = allocStaticSprite(renderer,texMain,	48,832,	 16,16);
+
+	sprSpeech[3] = allocStaticSprite(renderer,texMain,	0,848,	 16,16);
+	sprSpeech[4] = allocStaticSprite(renderer,texMain,	16,848,	 16,16);
+	sprSpeech[5] = allocStaticSprite(renderer,texMain,	48,848,	 16,16);
+
+	sprSpeech[6] = allocStaticSprite(renderer,texMain,	0,864,	 16,32);
+	sprSpeech[7] = allocStaticSprite(renderer,texMain,	16,864,	 16,32);
+	sprSpeech[8] = allocStaticSprite(renderer,texMain,	48,864,	 16,32);
+
+
+
+	sprSpeech[ 9] = allocStaticSprite(renderer,texMain,	0,896,	 24,24);
+	sprSpeech[10] = allocStaticSprite(renderer,texMain,	24,896,	 8,24);
+	sprSpeech[11] = allocStaticSprite(renderer,texMain,	40,896,	 24,24);
+
+	sprSpeech[12] = allocStaticSprite(renderer,texMain,	0,916,	 16,8);
+	sprSpeech[13] = allocStaticSprite(renderer,texMain,	19,909,	 8,8);
+	sprSpeech[14] = allocStaticSprite(renderer,texMain,	48,916,	 16,8);
+
+	sprSpeech[15] = allocStaticSprite(renderer,texMain,	0,928,	 32,32);
+	sprSpeech[16] = allocStaticSprite(renderer,texMain,	28,928,	 8,32);
+	sprSpeech[17] = allocStaticSprite(renderer,texMain,	32,928,	 32,32);
+
+	sprSpeechMore = allocStaticSprite(renderer,texMain,	0,800,	 64,32);
+
+
+	sprFont = allocAnimatedSprite(renderer,texMain,64,32,32);
+	for(int i=0;i<64;i++)
+		sprFont->setSubrectPixels(i,32*(i%32),960+32*(i/32),32,32);
 
 	setScene(new Level(this,"test"));
 }

@@ -11,21 +11,37 @@ void obj_player::begin()
 	frameTick = 0;
 	facingLeft = false;
 	type = OBJ_PLAYER;
-	hitbox = Wumbo::Hitbox(20,9,90,121);
+	hitbox = Wumbo::Hitbox(16,16,96,112);
 }
 void obj_player::update()
 {
 	if (Wumbo::__quickyKeyboard->isKeyDown(Wumbo::Key::Left))
 	{
 		frameTick++;
-		x -= 16;
 		facingLeft = true;
+		for(int i=16;i>0;i--)
+			if (!collideTerrain(x-i,y))
+			{
+				printf("WE MOVED LEFT BY %i\n",i);
+				x -= i;
+				i = 0;
+			}
 	}
 	if (Wumbo::__quickyKeyboard->isKeyDown(Wumbo::Key::Right))
 	{
 		frameTick++;
-		x += 16;
 		facingLeft = false;
+		for(int i=16;i>0;i--)
+			if (!collideTerrain(x+i,y))
+			{
+				printf("WE MOVED RIGHT BY %i\n",i);
+				x += i;
+				i = 0;
+			}
+	}
+	if (Wumbo::__quickyKeyboard->isKeyPressed(Wumbo::Key::Up) && collideTerrain(x,y+1))
+	{
+		vspeed = -16;
 	}
 	if (x < 0)
 		x = 0;
@@ -38,17 +54,24 @@ void obj_player::update()
 	}
 	while (frameTick >= 8)
 		frameTick -= 8;
-	if (y < 576-128-128)
+	if (!collideTerrain(x,y+1))
 	{
 		vspeed += 1;
-		y += vspeed;
 	}
-	if (y > 576-128-128)
+	y += vspeed;
+	bool did = false;
+	while(collideTerrain(x,y))
 	{
-		vspeed = 0;
-		y = 576-128-128;
+		did = true;
+		if (vspeed < 0)
+			y++;
+		if (vspeed > 0)
+			y--;
 	}
+	if (did)
+		vspeed = 0;
 }
+extern void draw_fancy_rectangle(int x, int y, int w, int h, int style);
 void obj_player::render()
 {
 	sprPlayer->setFlipX(facingLeft);

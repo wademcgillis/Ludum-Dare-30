@@ -15,11 +15,15 @@ typedef struct
 
 #include "Entity.h"
 class obj_player;
+class obj_talker;
 #include <vector>
 
 class Level : public Wumbo::Scene
 {
 public:
+	int phrasePosition;
+	int speechWidth;
+	int speechHeight;
 	std::string destinationRoom;
 	std::string destinationPortal;
 	bool altaredbefore;
@@ -30,6 +34,7 @@ public:
 	int menuOffset;
 	bool showingWorldMenu;
 	LD30Tile tiles[128*9];
+	obj_talker *talking;
 private:
 	void draw_thing(bool horz, Wumbo::Sprite *bg, int x, int y, unsigned int key, int setWorldStyleTo);
 public:
@@ -41,6 +46,7 @@ public:
 	void end();
 	void onClose();
 
+	void draw_text(int x, int y, std::string str);
 	Entity *addEntity(Entity *ent, int x, int y);
 };
 #endif

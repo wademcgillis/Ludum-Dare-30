@@ -132,7 +132,12 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Dark" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Text" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text1" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text2" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text3" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text4" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text5" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text6" Default="" MaxChars="-1" MultiLine="true" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>
@@ -153,7 +158,12 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Dark" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Text" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text1" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text2" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text3" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text4" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text5" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text6" Default="" MaxChars="-1" MultiLine="true" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>
@@ -174,7 +184,12 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Dark" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Text" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text1" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text2" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text3" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text4" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text5" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text6" Default="" MaxChars="-1" MultiLine="true" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>
@@ -195,7 +210,12 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Dark" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Text" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text1" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text2" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text3" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text4" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text5" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text6" Default="" MaxChars="-1" MultiLine="true" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>
@@ -216,7 +236,12 @@
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Dark" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="Real" Default="true" />
         <ValueDefinition xsi:type="BoolValueDefinition" Name="ZONGU" Default="true" />
-        <ValueDefinition xsi:type="StringValueDefinition" Name="Text" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text1" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text2" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text3" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text4" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text5" Default="" MaxChars="-1" MultiLine="true" />
+        <ValueDefinition xsi:type="StringValueDefinition" Name="Text6" Default="" MaxChars="-1" MultiLine="true" />
       </ValueDefinitions>
       <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
     </EntityDefinition>

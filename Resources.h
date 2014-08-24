@@ -49,7 +49,8 @@ RES Wumbo::Sprite *sprAltar;
 RES Wumbo::Sprite *sprStones;
 
 RES Wumbo::Sprite *sprFont;
-RES Wumbo::Sprite *sprSpeech;
+RES Wumbo::Sprite *sprSpeech[18];
+RES Wumbo::Sprite *sprSpeechMore;
 
 const unsigned int TILE_DIRT = 1;
 const unsigned int TILE_GRASS = 2;

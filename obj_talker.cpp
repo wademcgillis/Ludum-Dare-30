@@ -40,6 +40,22 @@ void obj_talker::begin()
 	drawX = x;
 	drawY = y;
 }
+void obj_talker::talk()
+{
+	switch(type)
+	{
+	case OBJ_SIGN:
+		break;
+	case OBJ_MUSHROOM:
+		break;
+	case OBJ_BUILDING:
+		break;
+	case OBJ_TREE:
+		break;
+	case OBJ_COW:
+		break;
+	}
+}
 void obj_talker::print()
 {
 	printf("[TALKER %i PHRASES]\n",(unsigned int)this);
@@ -52,6 +68,8 @@ void obj_talker::update()
 	{
 		if (collisionAt(x,y,OBJ_PLAYER))
 		{
+			if (type != OBJ_PORTAL)
+				level->talking = this;
 			scaletick += .2f;
 			scaleX = 1.f+.1f*cos(scaletick);
 			scaleY = 1.f+.1f*sin(scaletick);
@@ -60,6 +78,7 @@ void obj_talker::update()
 		}
 		else
 		{
+			currentPhrase = 0;
 			scaleX = 1;
 			scaleY = 1;
 			drawX = x;

@@ -3,13 +3,13 @@
     <Player id="1" x="0" y="80" />
     <Portal id="2" x="112" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Name="TestBegin" TargetPortal="TestEnd" TargetRoom="" />
     <Portal id="3" x="944" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Name="TestEnd" TargetPortal="Zooger" TargetRoom="testportal" />
-    <Sign id="4" x="192" y="96" Pastel="True" Dark="True" Real="True" ZONGU="True" Text="SNARFLE &#xD;&#xA;BARFLE&#xD;&#xA;ZING&#xD;&#xA;ZINGS" />
-    <Mushroom id="5" x="240" y="96" Pastel="True" Dark="True" Real="True" ZONGU="True" Text="" />
-    <Building id="6" x="288" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Text="" />
-    <Tree id="7" x="384" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Text="" />
-    <Cow id="8" x="448" y="80" Pastel="True" Dark="True" Real="True" ZONGU="True" Text="" />
+    <Sign id="4" x="192" y="96" Pastel="True" Dark="True" Real="True" ZONGU="True" Text1="Hello. I am sign.&#xD;&#xA;With multiline&#xD;&#xA;TEXT!" Text2="ZOGRUS" Text3="ZIMBABO" Text4="KROFLOP" Text5="QUOJ" Text6="LUHNHU" />
+    <Mushroom id="5" x="240" y="96" Pastel="True" Dark="True" Real="True" ZONGU="True" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Building id="6" x="288" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="7" x="384" y="48" Pastel="True" Dark="True" Real="True" ZONGU="True" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Cow id="8" x="448" y="80" Pastel="True" Dark="True" Real="True" ZONGU="True" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
     <Ground id="9" x="0" y="112" width="1024" height="32" Pastel="True" Dark="True" Real="True" ZONGU="True" />
-    <Ground id="10" x="496" y="48" width="32" height="64" Pastel="True" Dark="False" Real="False" ZONGU="False" />
+    <Ground id="10" x="496" y="80" width="32" height="32" Pastel="True" Dark="False" Real="False" ZONGU="False" />
     <Ground id="11" x="544" y="16" width="224" height="32" Pastel="False" Dark="True" Real="False" ZONGU="False" />
     <Altar id="0" x="48" y="80" />
   </Entities>
