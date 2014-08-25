@@ -138,7 +138,7 @@ void Level::begin()
 	dSize = 0;
 	//printf();
 	rapidxml::xml_document<char> bob;
-	char *data = file_contents((std::string("OGMO/")+destinationRoom+std::string(".oel")).c_str());
+	char *data = file_contents(Wumbo::BundleResource(std::string("OGMO/")+destinationRoom+std::string(".oel")).c_str());
 	bob.parse<0>(data);
 	printf("[ENTITIES]\n");
 	room_width = 4*atoi(bob.first_node()->first_attribute("width")->value());

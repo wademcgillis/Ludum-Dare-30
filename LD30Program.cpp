@@ -15,6 +15,8 @@ GLuint program;
 #define I_AM_THE_PROGRUS
 #include "Resources.h"
 
+#include "Wumbo-Functions.h"
+
 Wumbo::Sprite *allocStaticSprite(Wumbo::Renderer *r, Wumbo::Texture *texture, int w, int h, int u, int v, int uW, int vH)
 {
 	Wumbo::Sprite *spr = new Wumbo::Sprite(r);
@@ -66,8 +68,8 @@ void LD30Program::begin()
 	Wumbo::Program::begin();
 	// build the shader
 	Wumbo::ShaderBuilder builder;
-	builder.loadVertexShader(std::string("GFX/Shader.vsh"));
-	builder.loadFragmentShader(std::string("GFX/Shader.fsh"));
+	builder.loadVertexShader(Wumbo::BundleResource("GFX/Shader.vsh"));
+	builder.loadFragmentShader(Wumbo::BundleResource("GFX/Shader.fsh"));
 	builder.addAttrib(Wumbo::WumboVertexAttribPosition, "position");
 	builder.addAttrib(Wumbo::WumboVertexAttribColor, "color");
 	builder.addAttrib(Wumbo::WumboVertexAttribTexCoord0, "texcoord0");
@@ -109,21 +111,21 @@ void LD30Program::begin()
 
 	worldStyle = 1;
 
-	snd_pastel = ss_loadsound("SFX/pastel.ogg");
-	snd_dark = ss_loadsound("SFX/dark.ogg");
-	snd_real = ss_loadsound("SFX/real.ogg");
-	snd_ZONGU = ss_loadsound("SFX/zongu.ogg");
+	snd_pastel = ss_loadsound(Wumbo::BundleResource("SFX/pastel.ogg"));
+	snd_dark = ss_loadsound(Wumbo::BundleResource("SFX/dark.ogg"));
+	snd_real = ss_loadsound(Wumbo::BundleResource("SFX/real.ogg"));
+	snd_ZONGU = ss_loadsound(Wumbo::BundleResource("SFX/zongu.ogg"));
 
-	snd_talk = ss_loadsound("SFX/talk.ogg");
-	snd_wip = ss_loadsound("SFX/wip.ogg");
+	snd_talk = ss_loadsound(Wumbo::BundleResource("SFX/talk.ogg"));
+	snd_wip = ss_loadsound(Wumbo::BundleResource("SFX/wip.ogg"));
 
-	texMain = new Wumbo::Texture("GFX/texture.png");
-	texWorld_Pastel = new Wumbo::Texture("GFX/pastel.png");
-	texWorld_Dark = new Wumbo::Texture("GFX/dark.png");
-	texWorld_Real = new Wumbo::Texture("GFX/real.png");
-	texWorld_ZONGU = new Wumbo::Texture("GFX/dark.png");
+	texMain = new Wumbo::Texture(Wumbo::BundleResource("GFX/texture.png"));
+	texWorld_Pastel = new Wumbo::Texture(Wumbo::BundleResource("GFX/pastel.png"));
+	texWorld_Dark = new Wumbo::Texture(Wumbo::BundleResource("GFX/dark.png"));
+	texWorld_Real = new Wumbo::Texture(Wumbo::BundleResource("GFX/real.png"));
+	texWorld_ZONGU = new Wumbo::Texture(Wumbo::BundleResource("GFX/dark.png"));
 
-	texTitle = new Wumbo::Texture("GFX/title.png");
+	texTitle = new Wumbo::Texture(Wumbo::BundleResource("GFX/title.png"));
 
 	sprTitle = allocStaticSprite(renderer,texTitle,0,0,576,576);
 
