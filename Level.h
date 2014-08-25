@@ -48,5 +48,7 @@ public:
 
 	void draw_text(int x, int y, std::string str);
 	Entity *addEntity(Entity *ent, int x, int y);
+
+	void calculate_sound();
 };
 #endif

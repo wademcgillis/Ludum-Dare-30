@@ -55,6 +55,9 @@ void obj_talker::talk()
 	case OBJ_COW:
 		break;
 	}
+	int freq[] = {44100*.9f,44100,44100*1.1f};
+	ss_setfreq(snd_talk,freq[rand()%3]);
+	ss_playsound(snd_talk);
 }
 void obj_talker::print()
 {
@@ -88,7 +91,7 @@ void obj_talker::update()
 }
 void obj_talker::render()
 {
-	if (sprite != NULL)
+	if (sprite != NULL && (WORLD & worldStyle))
 	{
 		sprite->setScale(scaleX,scaleY);
 		sprite->setFlipX(level->player->x+64 > x+sprite->getWidth()/2);

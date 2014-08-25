@@ -116,11 +116,15 @@ Level::Level(Wumbo::Program *prog, std::string filename) : Wumbo::Scene(prog)
 Level::Level(Wumbo::Program *prog, std::string filename, std::string warpto) : Wumbo::Scene(prog)
 {
 	destinationRoom = filename;
-	destinationPortal = warpto;	
+	destinationPortal = warpto;
 }
 void Level::begin()
 {
+	calculate_sound();
 	phrasePosition = 0;
+	talking = NULL;
+	speechHeight = 0;
+	speechWidth = 0;
 	int playerX = 0;
 	int playerY = 0;
 	int warpX = -1;
@@ -134,7 +138,8 @@ void Level::begin()
 	dSize = 0;
 	//printf();
 	rapidxml::xml_document<char> bob;
-	bob.parse<0>(file_contents((std::string("C:\\LD30\\SOURCE\\OGMO\\")+destinationRoom+std::string(".oel")).c_str()));
+	char *data = file_contents((std::string("OGMO/")+destinationRoom+std::string(".oel")).c_str());
+	bob.parse<0>(data);
 	printf("[ENTITIES]\n");
 	room_width = 4*atoi(bob.first_node()->first_attribute("width")->value());
 	for(rapidxml::xml_node<char> *node = bob.first_node()->first_node()->first_node();node;node = node->next_sibling())
@@ -199,7 +204,7 @@ void Level::begin()
 				warpX = xx;
 				warpY = yy;
 			}
-			addEntity(new obj_portal(this,(char*)node->first_attribute("Name")->value(),TP,TR),64*xx,64*yy);
+			((obj_portal*)addEntity(new obj_portal(this,(char*)node->first_attribute("Name")->value(),TP,TR),64*xx,64*yy))->WORLD = in;
 		}
 
 		unsigned int talkerID = 0;
@@ -267,9 +272,11 @@ void Level::begin()
 	}
 	else
 	{
-		player = (obj_player*)addEntity(new obj_player(this),64*playerX,64*playerY);	
+		player = (obj_player*)addEntity(new obj_player(this),64*playerX,64*playerY);
 		printf("PICKLE\n");
 	}
+	bob.clear();
+	delete data;
 	//first->next_sibling();
 }
 void Level::draw_thing(bool horz, Wumbo::Sprite *bg, int x, int y, unsigned int key, int setWorldStyleTo)
@@ -295,6 +302,7 @@ void Level::draw_thing(bool horz, Wumbo::Sprite *bg, int x, int y, unsigned int 
 	{
 		worldStyle = setWorldStyleTo;
 		dSize = -8;
+		calculate_sound();
 	}
 }
 Entity *Level::addEntity(Entity *ent, int x, int y)
@@ -313,6 +321,37 @@ void Level::update()
 			entities.at(i)->update();
 	obj_portal::alreadyWarped = false;
 }
+void Level::calculate_sound()
+{
+	if (worldStyle == 1 && !ss_isplaying(snd_pastel))
+	{
+		ss_loopsound(snd_pastel);
+		ss_stopsound(snd_dark);
+		ss_stopsound(snd_real);
+		ss_stopsound(snd_ZONGU);
+	}
+	if (worldStyle == 2 && !ss_isplaying(snd_dark))
+	{
+		ss_stopsound(snd_pastel);
+		ss_loopsound(snd_dark);
+		ss_stopsound(snd_real);
+		ss_stopsound(snd_ZONGU);
+	}
+	if (worldStyle == 4 && !ss_isplaying(snd_real))
+	{
+		ss_stopsound(snd_pastel);
+		ss_stopsound(snd_dark);
+		ss_loopsound(snd_real);
+		ss_stopsound(snd_ZONGU);
+	}
+	if (worldStyle == 8 && !ss_isplaying(snd_ZONGU))
+	{
+		ss_stopsound(snd_pastel);
+		ss_stopsound(snd_dark);
+		ss_stopsound(snd_real);
+		ss_loopsound(snd_ZONGU);
+	}
+}
 void Level::render()
 {
 	if (Wumbo::OpenGL2())
@@ -324,7 +363,7 @@ void Level::render()
 	//
 	//
 	
-	if (Wumbo::__quickyKeyboard->isKeyPressed(Wumbo::Key::Return) || ALTARED && !altaredbefore)
+	if (/*Wumbo::__quickyKeyboard->isKeyPressed(Wumbo::Key::Return) ||*/ALTARED && !altaredbefore)
 	{
 		if (menuOffset == 0)
 		{
@@ -348,12 +387,8 @@ void Level::render()
 		dSize = 0;
 	}
 	// clear entire window
-	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(0,0,576,600,576,600));
+	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(0,0,576,576,576,576));
 	glClearColor(.33,.33,.33,1);
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(0,0,576,24,576,24));
-	glClearColor(randomf(1),randomf(1),randomf(1),1);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	if (ALTARED)
@@ -363,13 +398,13 @@ void Level::render()
 		bool hov_key = false;
 
 		// LEFT BAR
-		draw_thing(false, sprWorldSelector_Pastel, 0, 24+64, Wumbo::Key::Left, 1);
+		draw_thing(false, sprWorldSelector_Pastel, 0, 64, Wumbo::Key::Left, 1);
 		// RIGHT BAR
-		draw_thing(false, sprWorldSelector_Dark, 512, 24+64, Wumbo::Key::Right, 2);
+		draw_thing(false, sprWorldSelector_Dark, 512, 64, Wumbo::Key::Right, 2);
 		// TOP BAR
-		draw_thing(true, sprWorldSelector_Real, 64, 24, Wumbo::Key::Up, 4);
+		draw_thing(true, sprWorldSelector_Real, 64, 0, Wumbo::Key::Up, 4);
 		// BOTTOM BAR
-		draw_thing(true, sprWorldSelector_ZONGU, 64, 24+512, Wumbo::Key::Down, 8);
+		//draw_thing(true, sprWorldSelector_ZONGU, 64, 512, Wumbo::Key::Down, 8);
 	}
 
 	//
@@ -377,7 +412,7 @@ void Level::render()
 	//					DRAW LEVEL
 	//
 	//
-	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(menuOffset,24+menuOffset,576-2*menuOffset,576-2*menuOffset,576,576));
+	Wumbo::__quickyRenderer->setVirtualRenderTarget(Wumbo::VirtualRenderTarget(menuOffset,menuOffset,576-2*menuOffset,576-2*menuOffset,576,576));
 	
 	
 
@@ -480,6 +515,8 @@ void Level::render()
 		}
 		if (speechHeight == H)
 		{
+			if (talking->phrases.at(talking->currentPhrase) == "[GAME END]")
+				exit(0);
 			if ((phrasePosition+2)/4 <= talking->phrases.at(talking->currentPhrase).size())
 			{
 				phrasePosition++;

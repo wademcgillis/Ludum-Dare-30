@@ -1,7 +1,32 @@
-<level width="144" height="144" VanityText="portal testing">
+<level width="1024" height="144" VanityText="portal testing">
   <Entities>
-    <Ground id="0" x="0" y="128" width="144" height="16" Pastel="True" Dark="True" Real="True" ZONGU="True" />
+    <Ground id="0" x="0" y="128" width="1024" height="16" Pastel="True" Dark="True" Real="True" ZONGU="True" />
     <Player id="1" x="0" y="96" />
-    <Portal id="2" x="64" y="64" Pastel="True" Dark="True" Real="True" ZONGU="True" Name="Zooger" TargetPortal="TestBegin" TargetRoom="test" />
+    <Portal id="2" x="16" y="64" Pastel="True" Dark="True" Real="True" ZONGU="True" Name="Zooger" TargetPortal="TestEnd" TargetRoom="test" />
+    <Tree id="3" x="96" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="4" x="128" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="EVERY MOVE YOU&#xD;&#xA;MAKE" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="5" x="160" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="6" x="192" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="7" x="224" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="EVERY STEP YOU&#xD;&#xA;TAKE" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="8" x="256" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="9" x="288" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="10" x="320" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="WHILE YOU'RE&#xD;&#xA;AWAKE" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="11" x="352" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="12" x="384" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="13" x="416" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="OR IN A LAKE" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="14" x="448" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="15" x="480" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="16" x="512" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="WE'LL BE" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="17" x="544" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="18" x="576" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="19" x="608" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="WATCHING" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="20" x="640" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="21" x="672" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Tree id="22" x="704" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="BORL?" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Altar id="23" x="800" y="96" />
+    <Portal id="24" x="944" y="64" Pastel="False" Dark="False" Real="True" ZONGU="False" Name="Fred" TargetPortal="wooper" TargetRoom="chickenfarm" />
+    <Building id="25" x="848" y="64" Pastel="False" Dark="True" Real="False" ZONGU="False" Text1="enter the" Text2="real world" Text3="borl" Text4="" Text5="" Text6="" />
+    <Tree id="26" x="400" y="64" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="WHAT'S HAPPENING" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Ground id="27" x="208" y="48" width="192" height="80" Pastel="False" Dark="False" Real="True" ZONGU="False" />
   </Entities>
 </level>

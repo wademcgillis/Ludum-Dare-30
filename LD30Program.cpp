@@ -9,8 +9,7 @@
 #include "Wumbo-Quicky.h"
 #include "Wumbo-Renderer.h"
 
-#include "Level.h"
-
+#include "Title.h"
 GLuint program;
 
 #define I_AM_THE_PROGRUS
@@ -63,7 +62,7 @@ Wumbo::Program *WUMBOFRAMEWORK_GETPROGRAM()
 void LD30Program::begin()
 {
 	srand(time(NULL));
-
+	
 	Wumbo::Program::begin();
 	// build the shader
 	Wumbo::ShaderBuilder builder;
@@ -97,54 +96,36 @@ void LD30Program::begin()
 	renderer->resetVirtualRenderTarget();
 	setAssignedFrameRate(30);
 	
-	renderer->setTitle("Example Program");
+	renderer->setTitle("BORL");
 
 	GM::gm_wumbo_init(this);
 	Wumbo::Quicky_SetProgram(this);
-	renderer->setDisplaySize(576,600);
+	renderer->setDisplaySize(576,576);
 	renderer->centerDisplayOnScreen();
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-																		DINNER TIME
-
-
-
-S
-
-
-
-
-
-
-
-*/
+	
+	ss_init();
 
 	gems = 0xF;
 
 	worldStyle = 1;
+
+	snd_pastel = ss_loadsound("SFX/pastel.ogg");
+	snd_dark = ss_loadsound("SFX/dark.ogg");
+	snd_real = ss_loadsound("SFX/real.ogg");
+	snd_ZONGU = ss_loadsound("SFX/zongu.ogg");
+
+	snd_talk = ss_loadsound("SFX/talk.ogg");
+	snd_wip = ss_loadsound("SFX/wip.ogg");
 
 	texMain = new Wumbo::Texture("GFX/texture.png");
 	texWorld_Pastel = new Wumbo::Texture("GFX/pastel.png");
 	texWorld_Dark = new Wumbo::Texture("GFX/dark.png");
 	texWorld_Real = new Wumbo::Texture("GFX/real.png");
 	texWorld_ZONGU = new Wumbo::Texture("GFX/dark.png");
+
+	texTitle = new Wumbo::Texture("GFX/title.png");
+
+	sprTitle = allocStaticSprite(renderer,texTitle,0,0,576,576);
 
 	sprGlow_Horz = allocStaticSprite(renderer,texMain,448,64,192,0,448,64);
 	sprGlow_Vert = allocStaticSprite(renderer,texMain,64,448,0,192,64,448);
@@ -217,7 +198,7 @@ S
 	for(int i=0;i<64;i++)
 		sprFont->setSubrectPixels(i,32*(i%32),960+32*(i/32),32,32);
 
-	setScene(new Level(this,"test"));
+	setScene(new Title(this));
 }
 void LD30Program::update()
 {

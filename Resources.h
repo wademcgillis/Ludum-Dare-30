@@ -3,6 +3,7 @@
 #include "Wumbo-Shader.h"
 #include "Wumbo-Sprite.h"
 #include "Wumbo-Texture.h"
+#include "FjordsSound.h"
 #ifdef I_AM_THE_PROGRUS
 #define RES
 #else
@@ -22,6 +23,8 @@ RES Wumbo::Texture *texWorld_Dark;
 RES Wumbo::Texture *texWorld_Real;
 RES Wumbo::Texture *texWorld_ZONGU;
 
+RES Wumbo::Texture *texTitle;
+
 RES Wumbo::Sprite *sprGlow_Horz;
 RES Wumbo::Sprite *sprGlow_Vert;
 
@@ -33,6 +36,7 @@ RES Wumbo::Sprite *sprWorldSelector_Real;
 RES Wumbo::Sprite *sprWorldSelector_ZONGU;
 
 
+RES Wumbo::Sprite *sprTitle;
 
 
 RES Wumbo::Sprite *sprPlayer;
@@ -51,6 +55,14 @@ RES Wumbo::Sprite *sprStones;
 RES Wumbo::Sprite *sprFont;
 RES Wumbo::Sprite *sprSpeech[18];
 RES Wumbo::Sprite *sprSpeechMore;
+
+RES double snd_pastel;
+RES double snd_dark;
+RES double snd_real;
+RES double snd_ZONGU;
+
+RES double snd_talk;
+RES double snd_wip;
 
 const unsigned int TILE_DIRT = 1;
 const unsigned int TILE_GRASS = 2;

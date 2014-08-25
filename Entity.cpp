@@ -39,7 +39,7 @@ Entity *Entity::entityAt(int xx, int yy, unsigned int otype)
 		if (e != this)
 			if (e->type == otype)
 			{
-				if (e->WORLD & worldStyle)
+				if (WORLD & e->WORLD & worldStyle)
 				{
 					hitbox.x = xx;
 					hitbox.y = yy;
