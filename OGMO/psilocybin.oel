@@ -1,0 +1,71 @@
+<level width="1024" height="144" VanityText="">
+  <Entities>
+    <Ground id="0" x="0" y="128" width="1024" height="16" Pastel="True" Dark="True" Real="True" ZONGU="True" />
+    <Mushroom id="1" x="0" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Ground id="65" x="432" y="64" width="160" height="64" Pastel="True" Dark="True" Real="True" ZONGU="True" />
+    <Mushroom id="2" x="16" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="3" x="32" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="4" x="48" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="5" x="64" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="6" x="80" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="7" x="96" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="8" x="112" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="BYE" Text2="[GAME END]" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="9" x="128" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="10" x="144" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="11" x="160" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="12" x="176" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="13" x="192" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="14" x="208" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="15" x="224" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="16" x="240" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="17" x="256" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="18" x="272" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="19" x="288" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="20" x="304" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="21" x="320" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="22" x="336" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="23" x="352" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="24" x="368" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="i ran out of &#xD;&#xA;time. sorry." Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="25" x="384" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="26" x="400" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="27" x="416" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="38" x="592" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="39" x="608" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="40" x="624" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="41" x="640" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="i ran out of &#xD;&#xA;time. sorry." Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="42" x="656" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="43" x="672" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="44" x="688" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="45" x="704" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="46" x="720" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="47" x="736" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="48" x="752" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="49" x="768" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="50" x="784" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="51" x="800" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="52" x="816" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="53" x="832" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="54" x="848" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="55" x="864" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="56" x="880" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="57" x="896" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="BYE" Text2="[GAME END]" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="58" x="912" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="59" x="928" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="60" x="944" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="61" x="960" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="62" x="976" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="63" x="992" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Mushroom id="64" x="1008" y="112" Pastel="False" Dark="False" Real="True" ZONGU="False" Text1="" Text2="" Text3="" Text4="" Text5="" Text6="" />
+    <Portal id="66" x="480" y="0" Pastel="True" Dark="True" Real="False" ZONGU="False" Name="hooplah" TargetPortal="farmo" TargetRoom="chickenfarm" />
+    <Altar id="67" x="400" y="0" />
+    <Altar id="68" x="592" y="0" />
+    <Ground id="69" x="384" y="0" width="16" height="64" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+    <Ground id="70" x="400" y="32" width="32" height="32" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+    <Ground id="71" x="592" y="32" width="32" height="32" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+    <Ground id="72" x="576" y="0" width="16" height="64" Pastel="False" Dark="False" Real="True" ZONGU="False" />
+    <Ground id="73" x="624" y="0" width="16" height="64" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+    <Ground id="74" x="432" y="0" width="16" height="64" Pastel="False" Dark="False" Real="True" ZONGU="False" />
+    <Ground id="75" x="384" y="64" width="48" height="64" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+    <Ground id="76" x="592" y="64" width="48" height="64" Pastel="True" Dark="True" Real="False" ZONGU="False" />
+  </Entities>
+</level>

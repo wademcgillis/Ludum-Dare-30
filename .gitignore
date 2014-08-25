@@ -29,10 +29,15 @@ $RECYCLE.BIN/
 *.exe.intermediate.manifest
 *.exe.manifest
 
+*.zip
+*.dll
+*.ogg
+
 #stuff
 *.png
 *.pdn
 Wumbo*
+BROS*
 rapidxml*
 
 # =========================
